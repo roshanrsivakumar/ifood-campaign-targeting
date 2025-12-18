@@ -1,35 +1,88 @@
-# ifood-campaign-targeting
-RoshanRSivakumar | iFood marketing analytics: customer segmentation (KMeans) + campaign response prediction (LogReg, Random Forest) with targeting list, lift, and executive insights.
-# iFood Marketing Analytics  
-Customer Segmentation and Campaign Targeting
+# iFood Marketing Analytics: Customer Segmentation and Campaign Targeting
 
-Built by RoshanRSivakumar
+**Author:** Roshan R Sivakumar (GitHub: roshanrsivakumar)  
+**Portfolio:** https://www.roshanrsivakumar.com  
+**Search keywords:** roshanrsivakumar, Roshan R Sivakumar, marketing analytics, campaign targeting, customer segmentation
 
-## Why this project exists
-Marketing is art, but it still needs numbers that speak.  
-This project builds a simple end to end targeting engine to answer one question:
+## Overview
+This project builds an end to end marketing analytics workflow to improve campaign efficiency. It combines customer segmentation and campaign response prediction to create a ranked targeting list of customers most likely to respond.
 
-**_Who is most likely to respond to a marketing campaign, and how do we prioritize them?_**
+## Objectives
+- Understand what drives campaign response using EDA
+- Segment customers based on value and behavior
+- Predict campaign response probability using machine learning
+- Generate an actionable targeting list for campaign activation
 
 ## What I built
-1. Exploratory analysis to understand response patterns using income, recency, and spend
-2. Feature engineering for marketing behavior
-   1. TotalPurchases
-   2. DealShare
-   3. TotalKids
-   4. Channel mix shares
-3. Customer segmentation using KMeans
-4. Campaign response prediction using
-   1. Logistic Regression baseline
-   2. Random Forest for stronger ranking
-5. Targeting output
-   1. Top 200 customers ranked by predicted response probability
+- **EDA and KPI insights** using Income, Recency, and Total Spend
+- **Feature engineering** for marketing behavior:
+  - `TotalPurchases`
+  - `DealShare`
+  - `TotalKids`
+  - Channel mix shares (Web, Store, Catalog)
+- **Customer segmentation** using **KMeans**
+- **Response prediction** using:
+  - Logistic Regression (baseline)
+  - Random Forest (performance model)
+- **Targeting deliverable**: Top 200 customers ranked by predicted response probability
 
-## Key results from my run
-1. Logistic Regression AUC: 0.8657  
-2. Random Forest AUC: 0.8869  
-3. Overall response rate: 0.1504  
-4. Top 10 percent response rate: 0.6545  
-5. Lift in top decile: 4.35  
+## Key results (from my run)
+- **Logistic Regression AUC:** 0.8657  
+- **Random Forest AUC:** 0.8869  
+- **Overall response rate:** 0.1504  
+- **Top 10 percent response rate:** 0.6545  
+- **Lift in top decile:** 4.35  
 
-These numbers show the model can rank audiences well, which is the real job of targeting.
+## How to run (Google Colab)
+### Step 1: Place the dataset
+Because datasets can be large or have licensing constraints, the raw dataset may not be committed to GitHub.
+
+Create this path:
+- `data/ifood_df.csv`
+
+If you keep the CSV in Google Drive, update the `path` variable inside Notebook 01 accordingly.
+
+### Step 2: Run notebooks in order
+1. **01_data_check_and_eda.ipynb**
+   - Loads data
+   - Creates features
+   - Generates EDA charts and insights
+2. **02_segmentation.ipynb**
+   - Fits KMeans segmentation
+   - Exports segment profile and segmented dataset
+3. **03_response_model_targeting.ipynb**
+   - Trains Logistic Regression and Random Forest models
+   - Evaluates AUC and lift
+   - Exports targeting list and scored dataset
+
+## Outputs (deliverables)
+- Segment profile with response rate by segment
+- Target list of top 200 customers ranked by predicted response probability
+- Scored dataset with predicted probabilities for all customers
+
+## Business recommendations
+- Prioritize **high value and recent buyers** first for best ROI
+- Run campaigns in **waves**:
+  - Wave 1: Top ranked customers (highest predicted response)
+  - Wave 2: Mid value customers with personalized recommendations
+  - Wave 3: Deal sensitive customers using controlled discount tests
+- Track performance weekly:
+  - Response rate by segment
+  - Response rate by decile of predicted probability
+  - Lift over baseline targeting
+
+## KPI glossary
+Includes definitions for:
+- Response rate
+- Recency
+- Total spend (`MntTotal`)
+- Total purchases
+- Deal share
+- Campaign acceptance (`AcceptedCmpOverall`)
+- Channel mix
+
+## Screenshots
+Includes EDA charts, segment profile visuals, model metrics, and targeting list previews.
+
+## Topics (GitHub)
+roshanrsivakumar, RoshanRSivakumar, marketing-analytics, customer-segmentation, campaign-targeting, response-modeling, machine-learning, python, kmeans, random-forest, logistic-regression, auc, lift, colab
